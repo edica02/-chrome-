@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { width: 320px; padding: 15px; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+    h3 { margin-top: 0; color: #007722; display: flex; align-items: center; justify-content: space-between; }
+    
+    .control-group { margin-bottom: 15px; }
+    label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 13px; color: #333; }
+    select { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; background: #fff; }
+    
+    button {
+      width: 100%; padding: 12px; background-color: #37a000; color: white;
+      border: none; border-radius: 4px; cursor: pointer; font-size: 14px; font-weight: bold;
+      transition: background 0.3s;
+    }
+    button:hover { background-color: #2e8600; }
+    button:disabled { background-color: #999; cursor: not-allowed; }
+    
+    /* 警告提示 */
+    .warning-box {
+      background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba;
+      padding: 10px; border-radius: 4px; font-size: 12px; margin-bottom: 15px;
+      display: flex; align-items: center;
+    }
+    .warning-box strong { margin-right: 5px; font-size: 14px; }
+
+    /* 状态日志区 */
+    #status { 
+      margin-top: 15px; font-size: 12px; color: #555; line-height: 1.6; 
+      background: #f4f4f4; padding: 10px; border-radius: 4px; 
+      min-height: 60px; max-height: 150px; overflow-y: auto;
+      border: 1px solid #eee; white-space: pre-wrap;
+    }
+    
+    .domain-warn { color: #d00; font-size: 12px; margin-bottom: 10px; display: none; font-weight: bold;}
+    .latest-item { color: #007722; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h3>豆瓣书影导出 <span>v2.1</span></h3>
+  
+  <div id="domainWarn" class="domain-warn">⚠️ 请跳转到对应的豆瓣页面使用</div>
+
+  <div class="warning-box">
+    <strong>⚠️</strong> 抓取过程中请勿关闭当前页面，可以切换到其他窗口浏览。
+  </div>
+
+  <div class="control-group">
+    <label>选择导出类别：</label>
+    <select id="exportType">
+      <option value="book_collect">📚 读书 - 读过 (Collect)</option>
+      <option value="book_wish">✨ 读书 - 想读 (Wish)</option>
+      <option value="movie_collect">🎬 电影 - 看过 (Collect)</option>
+      <option value="movie_wish">🍿 电影 - 想看 (Wish)</option>
+    </select>
+  </div>
+
+  <button id="startBtn">开始导出 CSV</button>
+  
+  <div id="status">准备就绪...</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

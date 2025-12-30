@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "豆瓣书影导出助手 Pro",
+  "version": "2.0",
+  "description": "导出豆瓣读书（读过/想读）及电影（看过/想看），支持自动翻页和防反爬。",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://book.douban.com/*",
+    "https://movie.douban.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}
